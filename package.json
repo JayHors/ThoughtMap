@@ -1,0 +1,25 @@
+{
+  "name": "react-project",
+  "version": "0.0.1",
+  "description": "React project for IGME430",
+  "main": "./src/app.js",
+  "scripts": {
+    "pretest": "eslint ./src",
+    "test": "echo \"test complete\""
+  },
+  "author": "Jay Horsfall",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.3",
+    "react": "^18.0.0",
+    "webpack": "^5.72.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
