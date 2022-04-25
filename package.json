@@ -6,9 +6,9 @@
   "scripts": {
     "webpack": "webpack",
     "webpackWatch": "webpack watch",
-    "nodemon":"nodemon -e js,html,css --watch ./src --watch ./hosted ./src/server.js",
+    "nodemon": "nodemon -e js,html,css --watch ./src --watch ./hosted ./src/server.js",
     "start": "node ./src/server.js",
-    "pretest": "eslint ./src",
+    "pretest": "eslint ./src --fix",
     "test": "echo \"test complete\"",
     "heroku-postbuild": "webpack"
   },
@@ -25,6 +25,7 @@
     "express-handlebars": "^6.0.5",
     "express-session": "^1.17.2",
     "helmet": "^5.0.2",
+    "mapbox-gl": "^2.8.2",
     "mongoose": "^6.3.0",
     "react": "^18.0.0",
     "redis": "^4.0.6",
