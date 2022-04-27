@@ -16,6 +16,8 @@ function router(app) {
 
   app.get('/getOwnerThoughts', mid.requiresSecure, mid.requiresLogin, controllers.Thought.getOwnerThoughts);
 
+  app.get('/publicThoughts', mid.requiresSecure, mid.requiresLogin, controllers.Thought.getPublicThoughts);
+
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 }
 

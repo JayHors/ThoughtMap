@@ -37,7 +37,18 @@ const postThought = async (req, res) => {
   }
 };
 
-const getOwnerThoughts = (req, res) => ThoughtModel.findByOwner(req.session.account._id, (err, docs) => {
+const getOwnerThoughts = (req, res) => {
+  ThoughtModel.findByOwner(req.session.account._id, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ error: 'An error occurred!' });
+    }
+
+    return res.json({ thoughts: docs });
+  });
+};
+
+const getPublicThoughts = (req, res) => ThoughtModel.findAllPublic((err, docs) => {
   if (err) {
     console.log(err);
     return res.status(400).json({ error: 'An error occurred!' });
@@ -50,4 +61,5 @@ module.exports = {
   appPage,
   postThought,
   getOwnerThoughts,
+  getPublicThoughts,
 };

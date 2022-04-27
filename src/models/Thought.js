@@ -46,7 +46,7 @@ ThoughtSchema.statics.toAPI = (doc) => ({
 
 ThoughtSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
-    owner: mongoose.Types.ObjectId(ownerId),
+    ownerId: mongoose.Types.ObjectId(ownerId),
   };
 
   return ThoughtModel.find(search).select('latitude longitude pubBool text username createdDate').lean().exec(callback);
