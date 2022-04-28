@@ -203,7 +203,6 @@ const init = async () => {
 const renderApp = (csrfToken, thoughts) => {
     ReactDOM.render(
         <div>
-            <ChangePassForm csrf={csrfToken}/>
             <ThoughtForm csrf={csrfToken} />
             <ThoughtMap csrf={csrfToken} thoughts={thoughts} />
         </div>,
