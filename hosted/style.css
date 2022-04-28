@@ -64,3 +64,8 @@ textarea{
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+#loginForm, #signupForm {
+    padding: 1vh;
+    margin: 5px;
+}

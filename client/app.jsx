@@ -189,12 +189,6 @@ const init = async () => {
         e.preventDefault();
         loadPoints('/getOwnerThoughts');
     });
-    const changePass = document.querySelector('#changepass');
-    changePass.addEventListener('click', (e) => {
-        e.preventDefault();
-        const form = document.querySelector('#changePassForm');
-        form.hidden = !form.hidden;
-    });
 
     renderApp(data.csrfToken, []);
     loadPoints('/getOwnerThoughts');
