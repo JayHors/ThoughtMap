@@ -9,6 +9,31 @@ const logout = (req, res) => {
   return res.redirect('/');
 };
 
+const changePassword = (req, res) => {
+  const username = `${req.session.account.username}`;
+  const oldPass = `${req.body.oldpass}`;
+  const newPass = `${req.body.newpass}`;
+  const newPass2 = `${req.body.newpass2}`;
+
+  if (newPass !== newPass2) {
+    return res.status(400).json({ error: 'New passwords do not match!' });
+  }
+
+  return Account.authenticate(username, oldPass, (err, account) => {
+    if (err || !account) {
+      return res.status(401).json({ error: 'Authentication failed!' });
+    };
+    Account.updatePassword(username, newPass, (err, account) => {
+      try {
+        req.session.account = Account.ToAPI(account);
+        return res.json({ redirect: '/app' });
+      } catch (e) {
+        console.log(e);
+      }
+    });
+  });
+}
+
 const login = (req, res) => {
   const username = `${req.body.username}`;
   const pass = `${req.body.pass}`;
@@ -62,4 +87,5 @@ module.exports = {
   logout,
   signup,
   getToken,
+  changePassword,
 };

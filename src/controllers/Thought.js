@@ -57,9 +57,19 @@ const getPublicThoughts = (req, res) => ThoughtModel.findAllPublic((err, docs) =
   return res.json({ thoughts: docs });
 });
 
+const getAds = (req, res) => ThoughtModel.findAdPoints((err, docs) => {
+  if (err) {
+    console.log(err);
+    return res.status(400).json({ error: 'An error occurred!' });
+  }
+
+  return res.json({ thoughts: docs });
+});
+
 module.exports = {
   appPage,
   postThought,
   getOwnerThoughts,
   getPublicThoughts,
+  getAds,
 };

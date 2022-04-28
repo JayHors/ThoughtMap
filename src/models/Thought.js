@@ -60,5 +60,12 @@ ThoughtSchema.statics.findAllPublic = (callback) => {
   return ThoughtModel.find(search).select('latitude longitude pubBool text username createdDate').lean().exec(callback);
 };
 
+ThoughtSchema.statics.findAdPoints = (callback) =>{
+  const search = {
+    username: 'AdNetworkAdmin'
+  }
+  return ThoughtModel.find(search).select('latitude longitude pubBool text username createdDate').lean().exec(callback);
+}
+
 ThoughtModel = mongoose.model('Thought', ThoughtSchema);
 module.exports = ThoughtModel;

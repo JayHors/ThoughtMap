@@ -1,16 +1,36 @@
-.map-container {
-    height: 75vh;
+*{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
 }
-ThoughtForm{
+.map-container {
+    height: 74vh;
+}
+.thoughtForm{
     height: 20vh;
+    text-align: center;
+    border: black solid 3px;
 }
 nav{
     height: 5vh;
+    background-color: firebrick;
 }
-nav div{
+nav *{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
     float: left;
     padding-left: 10px;
     cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+textarea{
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    resize: none;
+    font-size: 12pt;
 }
 .sidebar {
     background-color: rgba(35, 55, 75, 0.7);
@@ -19,7 +39,7 @@ nav div{
     font-family: monospace;
     z-index: 1;
     position: absolute;
-    top: 0;
+    bottom: 5%;
     left: 0;
     margin: 12px;
     border-radius: 4px;
@@ -27,6 +47,7 @@ nav div{
 
 .map-stuff {
     position: relative;
+    padding-bottom: 0;
 }
 
 .crosshair {
@@ -37,4 +58,9 @@ nav div{
     z-index: 1;
     font-weight: bold;
     user-select: none;
+}
+
+.changePassForm {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
