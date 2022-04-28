@@ -42,11 +42,10 @@ AccountSchema.statics.updatePassword = async (username, newPassword, callback) =
     const newDoc = await AccountModel.updateOne({ username }, { password: newHash }).exec();
 
     return callback(null, newDoc);
-
   } catch (err) {
     return callback(err);
   }
-}
+};
 
 AccountSchema.statics.authenticate = async (username, password, callback) => {
   try {

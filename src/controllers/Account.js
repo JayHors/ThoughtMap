@@ -19,10 +19,10 @@ const changePassword = (req, res) => {
     return res.status(400).json({ error: 'New passwords do not match!' });
   }
 
-  return Account.authenticate(username, oldPass, (err, account) => {
-    if (err || !account) {
+  return Account.authenticate(username, oldPass, (error, account1) => {
+    if (error || !account1) {
       return res.status(401).json({ error: 'Authentication failed!' });
-    };
+    }
     Account.updatePassword(username, newPass, (err, account) => {
       try {
         req.session.account = Account.ToAPI(account);
@@ -30,9 +30,11 @@ const changePassword = (req, res) => {
       } catch (e) {
         console.log(e);
       }
+      return false;
     });
+    return false;
   });
-}
+};
 
 const login = (req, res) => {
   const username = `${req.body.username}`;
